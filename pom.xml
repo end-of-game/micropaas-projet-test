@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.treeptik</groupId>
+	<artifactId>test-plugin</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>es.devera.maven.plugins</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<urlDockerManager>http://192.168.1.71:4243</urlDockerManager>
+					<containerImage>cloudunit/jboss-7</containerImage>
+					<containerName>${project.artifactId}</containerName>
+					<cmds>
+						<cmd>/bin/sh</cmd>
+						<cmd>start-service.sh</cmd>
+						<cmd>johndoe</cmd>
+						<cmd>aaa</cmd>
+						<cmd>192.168.0.4</cmd>
+						<cmd>testCLI</cmd>
+					</cmds>
+				</configuration>
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>1</id> -->
+<!-- 						<phase>validate</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>createContainer</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 					<execution> -->
+<!-- 						<id>2</id> -->
+<!-- 						<phase>compile</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>startContainer</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+			</plugin>
+		</plugins>
+
+
+
+	</build>
+
+</project>
